@@ -14,7 +14,7 @@ importers:
 
   config/eslint-config:
     devDependencies:
-      '@niveo/prettier':
+      '@nivo/prettier':
         specifier: workspace:*
         version: link:../prettier
       '@rocketseat/eslint-config':

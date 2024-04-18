@@ -1,5 +1,5 @@
 {
-  "name": "@niveo/eslint-config",
+  "name": "@nivo/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [
@@ -10,9 +10,9 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "eslint-plugin-simple-import-sort": "^12.1.0",
-    "@niveo/prettier": "workspace:*"
+    "@nivo/prettier": "workspace:*"
   },
-  "prettier": "@niveo/prettier",
+  "prettier": "@nivo/prettier",
   "eslintConfig": {
     "extends": ["./library.js"]
   }
