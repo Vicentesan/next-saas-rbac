@@ -1,0 +1,4 @@
+{
+  "extends": "@nivo/tsconfig/node.json",
+  "include": ["src/**/*"]
+}

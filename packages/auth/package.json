@@ -5,12 +5,17 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "devDependencies": {
-    "@nivo/prettier": "workspace:*",
     "@nivo/eslint-config": "workspace:*",
+    "@nivo/prettier": "workspace:*",
     "@nivo/tsconfig": "workspace:*"
   },
   "eslintConfig": {
-    "extends": ["@nivo/eslint-config/library"]
+    "extends": [
+      "@nivo/eslint-config/library"
+    ]
   },
-  "prettier": "@nivo/prettier"
+  "prettier": "@nivo/prettier",
+  "dependencies": {
+    "@casl/ability": "^6.7.1"
+  }
 }
