@@ -1,0 +1,4 @@
+{
+  "extends": "@nivo/tsconfig/library.json",
+  "include": ["src/**/*"]
+}

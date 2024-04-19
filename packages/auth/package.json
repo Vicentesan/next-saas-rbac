@@ -1,0 +1,16 @@
+{
+  "name": "@nivo/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "devDependencies": {
+    "@nivo/prettier": "workspace:*",
+    "@nivo/eslint-config": "workspace:*",
+    "@nivo/tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "extends": ["@nivo/eslint-config/library"]
+  },
+  "prettier": "@nivo/prettier"
+}
