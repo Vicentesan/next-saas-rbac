@@ -1,4 +1,4 @@
-import { Role } from '../permissions'
+import { Role } from '../roles'
 
 export type User = {
   role: Role
