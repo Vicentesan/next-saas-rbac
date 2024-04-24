@@ -2,10 +2,14 @@
   "name": "@nivo/api",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/http/server.ts"
   },
   "dependencies": {
-    "@nivo/auth": "workspace:*"
+    "@fastify/cors": "^9.0.1",
+    "@nivo/auth": "workspace:*",
+    "fastify": "^4.26.2",
+    "fastify-type-provider-zod": "^1.1.9",
+    "zod": "^3.22.5"
   },
   "devDependencies": {
     "@nivo/eslint-config": "workspace:*",
