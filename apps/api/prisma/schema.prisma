@@ -6,3 +6,141 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @default(uuid())
+
+  name         String?
+  email        String  @unique
+  passwordHash String?
+  avatarUrl    String?
+
+  invites      Invite[]
+  tokens       Token[]
+  accounts     Account[]
+  ownerIn      Organization[]
+  memberIn     Member[]
+  projectOwner Project[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+enum TokenType {
+  PASSWORD_RECOVERY
+}
+
+model Token {
+  id String @id @default(uuid())
+
+  type TokenType
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("tokens")
+}
+
+enum AccountProvider {
+  GITHUB
+}
+
+model Account {
+  id String @id @default(uuid())
+
+  provider          AccountProvider
+  providerAccountId String          @unique
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@unique([provider, userId])
+  @@map("accounts")
+}
+
+enum Role {
+  ADMIN
+  BILLING
+  MEMBER
+}
+
+model Invite {
+  id String @id @default(uuid())
+
+  role  Role
+  email String
+
+  userId String?
+  author User?   @relation(fields: [userId], references: [id])
+
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([email, organizationId])
+  @@index([email])
+  @@map("invites")
+}
+
+model Member {
+  id String @id @default(uuid())
+
+  role Role @default(MEMBER)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  @@unique([organizationId, userId])
+  @@map("members")
+}
+
+model Organization {
+  id String @id @default(uuid())
+
+  shouldAttachUsersByDomain Boolean @default(false)
+
+  name    String
+  logoUrl String?
+  slug    String  @unique
+  domain  String? @unique
+
+  userId String
+  owner  User   @relation(fields: [userId], references: [id])
+
+  invites  Invite[]
+  members  Member[]
+  projects Project[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("organizations")
+}
+
+model Project {
+  id String @id @default(uuid())
+
+  name        String
+  description String?
+  logoUrl     String?
+  slug        String  @unique
+
+  userId String
+  owner  User   @relation(fields: [userId], references: [id])
+
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("projects")
+}
