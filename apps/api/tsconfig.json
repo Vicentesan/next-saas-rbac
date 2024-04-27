@@ -1,4 +1,11 @@
 {
   "extends": "@nivo/tsconfig/node.json",
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
 }
