@@ -112,8 +112,8 @@ model Organization {
   slug    String  @unique
   domain  String? @unique
 
-  userId String
-  owner  User   @relation(fields: [userId], references: [id])
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
 
   invites  Invite[]
   members  Member[]
@@ -133,8 +133,8 @@ model Project {
   logoUrl     String?
   slug        String  @unique
 
-  userId String
-  owner  User   @relation(fields: [userId], references: [id])
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
 
   organizationId String
   organization   Organization @relation(fields: [organizationId], references: [id])
