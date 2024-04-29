@@ -29,7 +29,7 @@ export async function createAccount(app: FastifyInstance) {
 
       const userWithSameEmail = await prisma.user.findUnique({
         where: {
-          email,
+          email: email.toLocaleLowerCase(),
         },
       })
 
@@ -50,7 +50,7 @@ export async function createAccount(app: FastifyInstance) {
       await prisma.user.create({
         data: {
           name,
-          email,
+          email: email.toLocaleLowerCase(),
           passwordHash: hashedPassword,
           memberIn: autoJoinOrganization
             ? {

@@ -30,7 +30,7 @@ export async function authenticateWithPassword(app: FastifyInstance) {
 
       const userFromEmail = await prisma.user.findUnique({
         where: {
-          email,
+          email: email.toLocaleLowerCase(),
         },
       })
 
