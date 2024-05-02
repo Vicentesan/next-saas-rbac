@@ -11,11 +11,12 @@ export const errorHandler: FastifyErrorHandler = (err, req, res) => {
     return res
       .status(400)
       .send({ message: 'Validation error', erros: err.flatten().fieldErrors })
+
   if (err instanceof BadRequestError)
     return res.status(400).send({ message: err.message })
 
   if (err instanceof UnauthorizedError)
-    res.send(401).send({ message: err.message })
+    return res.status(401).send({ message: err.message })
 
   // send error to some observability service
   console.error(err)
