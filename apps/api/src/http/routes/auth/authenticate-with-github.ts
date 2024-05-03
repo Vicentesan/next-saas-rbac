@@ -1,8 +1,8 @@
+import { env } from '@nivo/env'
 import type { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import z from 'zod'
 
-import { env } from '@/env'
 import { prisma } from '@/lib/prisma'
 
 import { BadRequestError } from '../_erros/bad-request-error'
@@ -44,9 +44,15 @@ export async function authenticateWithGithub(app: FastifyInstance) {
         'https://github.com/login/oauth/access_token',
       )
 
-      githubOAuthURL.searchParams.set('client_id', env.GITHUB_CLIENT_ID)
-      githubOAuthURL.searchParams.set('client_secret', env.GITHUB_SECRET_KEY)
-      githubOAuthURL.searchParams.set('redirect_uri', env.GITHUB_REDIRECT_URI)
+      githubOAuthURL.searchParams.set('client_id', env.GITHUB_OAUTH_CLIENT_ID)
+      githubOAuthURL.searchParams.set(
+        'client_secret',
+        env.GITHUB_OAUTH_CLIENT_SECRET,
+      )
+      githubOAuthURL.searchParams.set(
+        'redirect_uri',
+        env.GITHUB_OAUTH_REDIRECT_URI,
+      )
       githubOAuthURL.searchParams.set('code', code)
 
       const githubAccessTokenResponse = await fetch(githubOAuthURL, {

@@ -2,7 +2,10 @@
   "name": "@nivo/api",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx watch src/http/server.ts"
+    "dev": "pnpm env:load tsx watch src/http/server.ts",
+    "prisma:migrate": "pnpm env:load prisma migrate dev",
+    "prisma:studio": "pnpm env:load prisma studio",
+    "env:load": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
@@ -10,6 +13,7 @@
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
     "@nivo/auth": "workspace:*",
+    "@nivo/env": "workspace:*",
     "@prisma/client": "5.13.0",
     "bcryptjs": "^2.4.3",
     "fastify": "^4.26.2",
@@ -24,7 +28,7 @@
     "@nivo/tsconfig": "workspace:*",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.12.7",
-    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.1",
     "prisma": "^5.13.0",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"

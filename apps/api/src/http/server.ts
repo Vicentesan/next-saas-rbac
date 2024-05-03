@@ -2,6 +2,7 @@ import { fastifyCors } from '@fastify/cors'
 import fastifyJwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
+import { env } from '@nivo/env'
 import { fastify } from 'fastify'
 import {
   jsonSchemaTransform,
@@ -9,8 +10,6 @@ import {
   validatorCompiler,
   ZodTypeProvider,
 } from 'fastify-type-provider-zod'
-
-import { env } from '@/env'
 
 import { errorHandler } from './error-handler'
 import { authenticateWithGithub } from './routes/auth/authenticate-with-github'
@@ -58,6 +57,6 @@ app.register(authenticateWithGithub)
 
 app
   .listen({
-    port: env.PORT,
+    port: env.BACKEND_PORT,
   })
-  .then(() => console.log(`Server is running on port ${env.PORT}`))
+  .then(() => console.log(`Server is running on port ${env.BACKEND_PORT}`))
