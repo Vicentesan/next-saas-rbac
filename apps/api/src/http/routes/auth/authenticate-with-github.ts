@@ -89,7 +89,7 @@ export async function authenticateWithGithub(app: FastifyInstance) {
 
       let user = await prisma.user.findUnique({
         where: {
-          email,
+          email: email.toLocaleLowerCase(),
         },
       })
 
@@ -97,7 +97,7 @@ export async function authenticateWithGithub(app: FastifyInstance) {
         user = await prisma.user.create({
           data: {
             name,
-            email,
+            email: email.toLocaleLowerCase(),
             avatarUrl,
           },
         })
