@@ -1,6 +1,6 @@
 import type { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
-import z from 'zod'
+import { z } from 'zod'
 
 import { auth } from '@/http/middlewares/auth'
 import { prisma } from '@/lib/prisma'
@@ -18,11 +18,7 @@ export async function createOrganization(app: FastifyInstance) {
         schema: {
           tags: ['Organization'],
           summary: 'Create a new organization',
-          security: [
-            {
-              bearerAuth: [],
-            },
-          ],
+          security: [{ bearerAuth: [] }],
           body: z.object({
             name: z.string(),
             domain: z.string().nullish(),
