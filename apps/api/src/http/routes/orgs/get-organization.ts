@@ -9,11 +9,11 @@ export async function getOrganization(app: FastifyInstance) {
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
     .get(
-      '/organization/:slug',
+      '/organizations/:slug',
       {
         schema: {
           tags: ['Organization'],
-          summary: 'Get details from organization',
+          summary: 'Get details from organization by slug',
           security: [{ bearerAuth: [] }],
           params: z.object({
             slug: z.string(),
