@@ -1,4 +1,4 @@
-import { roleSchema } from '@nivo/auth/src/roles'
+import { roleSchema } from '@nivo/auth'
 import type { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'
