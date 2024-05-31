@@ -96,7 +96,7 @@ model Member {
   user   User   @relation(fields: [userId], references: [id])
 
   organizationId String
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@unique([organizationId, userId])
   @@map("members")
