@@ -18,7 +18,7 @@ export async function shutdownOrganization(app: FastifyInstance) {
       {
         schema: {
           tags: ['Organization'],
-          summary: 'Delete organization by slug',
+          summary: 'Delete organization',
           security: [{ bearerAuth: [] }],
           params: z.object({
             slug: z.string(),

@@ -18,7 +18,7 @@ export async function updateOrganization(app: FastifyInstance) {
       {
         schema: {
           tags: ['Organization'],
-          summary: 'Update organization by slug',
+          summary: 'Update organization',
           security: [{ bearerAuth: [] }],
           params: z.object({
             slug: z.string(),
