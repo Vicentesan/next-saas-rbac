@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "pnpm env:load tsx watch src/http/server.ts",
+    "prisma:seed": "pnpm env:load tsx prisma/seed.ts",
     "prisma:migrate": "pnpm env:load prisma migrate dev",
     "prisma:studio": "pnpm env:load prisma studio",
     "env:load": "dotenv -e ../../.env --"
