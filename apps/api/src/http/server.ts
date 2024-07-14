@@ -18,6 +18,7 @@ import { createAccount } from './routes/auth/create-account'
 import { getProfile } from './routes/auth/get-profile'
 import { requestPasswordRecovery } from './routes/auth/request-password-recovery'
 import { resetPassword } from './routes/auth/reset-password'
+import { removeMember } from './routes/members/delete-member'
 import { fetchMembers } from './routes/members/fetch-members'
 import { updateMember } from './routes/members/update-member'
 import { createOrganization } from './routes/orgs/create-organization'
@@ -93,6 +94,7 @@ app.register(updateProject)
 
 app.register(fetchMembers)
 app.register(updateMember)
+app.register(removeMember)
 
 app
   .listen({
