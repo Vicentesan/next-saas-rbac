@@ -22,6 +22,7 @@ import { acceptInvite } from './routes/invites/accept-invite'
 import { createInvite } from './routes/invites/create-invite'
 import { fetchInvites } from './routes/invites/fetch-invites'
 import { getInvite } from './routes/invites/get-invite'
+import { getPendingInvites } from './routes/invites/get-pending-invites'
 import { rejectInvite } from './routes/invites/reject-invite'
 import { revokeInvite } from './routes/invites/revoke-invite'
 import { removeMember } from './routes/members/delete-member'
@@ -108,6 +109,7 @@ app.register(fetchInvites)
 app.register(acceptInvite)
 app.register(rejectInvite)
 app.register(revokeInvite)
+app.register(getPendingInvites)
 
 app
   .listen({
