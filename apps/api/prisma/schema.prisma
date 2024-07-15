@@ -74,8 +74,8 @@ model Invite {
   role  Role
   email String
 
-  userId String?
-  author User?   @relation(fields: [userId], references: [id])
+  authorId String?
+  author   User?   @relation(fields: [authorId], references: [id])
 
   organizationId String
   organization   Organization @relation(fields: [organizationId], references: [id])
