@@ -19,6 +19,7 @@ import { getProfile } from './routes/auth/get-profile'
 import { requestPasswordRecovery } from './routes/auth/request-password-recovery'
 import { resetPassword } from './routes/auth/reset-password'
 import { createInvite } from './routes/invites/create-invite'
+import { fetchInvites } from './routes/invites/fetch-invites'
 import { getInvite } from './routes/invites/get-invite'
 import { removeMember } from './routes/members/delete-member'
 import { fetchMembers } from './routes/members/fetch-members'
@@ -100,6 +101,7 @@ app.register(removeMember)
 
 app.register(createInvite)
 app.register(getInvite)
+app.register(fetchInvites)
 
 app
   .listen({
