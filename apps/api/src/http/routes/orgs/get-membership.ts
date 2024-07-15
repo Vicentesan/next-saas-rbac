@@ -30,17 +30,15 @@ export async function getMembership(app: FastifyInstance) {
           },
         },
       },
-      async (req) => {
+      async (req, res) => {
         const { slug } = req.params
-        const { membership } = await req.getUserMembership(slug)
+        const {
+          membership: { id, organizationId, role },
+        } = await req.getUserMembership(slug)
 
-        return {
-          membership: {
-            id: membership.id,
-            organizationId: membership.organizationId,
-            role: membership.role,
-          },
-        }
+        return res
+          .status(200)
+          .send({ membership: { id, organizationId, role } })
       },
     )
 }

@@ -32,7 +32,7 @@ export async function getOrganizations(app: FastifyInstance) {
           },
         },
       },
-      async (req) => {
+      async (req, res) => {
         const { sub: userId } = await req.getCurrentUserId()
 
         const organizations = await prisma.organization.findMany({
@@ -68,7 +68,9 @@ export async function getOrganizations(app: FastifyInstance) {
           },
         )
 
-        return { organizations: organizationsWithUserRole }
+        return res
+          .status(200)
+          .send({ organizations: organizationsWithUserRole })
       },
     )
 }

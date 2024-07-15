@@ -35,11 +35,11 @@ export async function getOrganization(app: FastifyInstance) {
           },
         },
       },
-      async (req) => {
+      async (req, res) => {
         const { slug } = req.params
         const { organization } = await req.getUserMembership(slug)
 
-        return { organization }
+        return res.status(200).send({ organization })
       },
     )
 }
