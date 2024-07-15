@@ -15,7 +15,6 @@ export async function getInvite(app: FastifyInstance) {
         tags: ['Invite'],
         summary: 'Get invite details',
         params: z.object({
-          slug: z.string(),
           inviteId: z.string().uuid(),
         }),
         response: {
