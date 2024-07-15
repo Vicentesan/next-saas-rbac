@@ -15,7 +15,7 @@
     "@fastify/swagger-ui": "^3.0.0",
     "@nivo/auth": "workspace:*",
     "@nivo/env": "workspace:*",
-    "@prisma/client": "5.13.0",
+    "@prisma/client": "5.16.2",
     "bcryptjs": "^2.4.3",
     "fastify": "^4.26.2",
     "fastify-plugin": "^4.5.1",
@@ -30,7 +30,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.12.7",
     "dotenv-cli": "^7.4.1",
-    "prisma": "^5.13.0",
+    "prisma": "^5.16.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"
   },
