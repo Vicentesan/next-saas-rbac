@@ -30,7 +30,6 @@ type HandleSignInWithEmailAndPasswordResponse =
     }
 
 export async function handleSignInWithEmailAndPassword(
-  _: unknown,
   data: FormData,
 ): Promise<HandleSignInWithEmailAndPasswordResponse> {
   const result = signInSchema.safeParse(Object.fromEntries(data))

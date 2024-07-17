@@ -3,7 +3,7 @@
 import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useActionState, useEffect } from 'react'
+import { type FormEvent, useState, useTransition } from 'react'
 import { toast } from 'sonner'
 
 import githubIcon from '@/assets/github-icon.svg'
@@ -12,24 +12,45 @@ import { Input } from '@/components/ui/input'
 
 import { handleSignInWithEmailAndPassword } from './actions'
 
+type FormState = {
+  success: boolean
+  message: string | null
+  validationErrors: {
+    email?: string[] | undefined
+    password?: string[] | undefined
+  } | null
+}
+
 export function SignInForm() {
-  const [{ success, message, validationErrors }, formAction, isPending] =
-    useActionState(handleSignInWithEmailAndPassword, {
+  const [{ success, message, validationErrors }, setFormState] =
+    useState<FormState>({
       success: false,
       message: null,
       validationErrors: null,
     })
+  const [isPending, startTransition] = useTransition()
 
-  useEffect(() => {
+  async function handleFormAction(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    startTransition(async () => {
+      const state = await handleSignInWithEmailAndPassword(data)
+
+      setFormState(state)
+    })
+
     if (success === false && message) {
       toast.error('Sign in failed!', {
         description: message,
       })
     }
-  }, [success, message])
+  }
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form onSubmit={handleFormAction} className="space-y-4">
       <div className="space-y-1">
         <label htmlFor="email">E-mail</label>
         <Input name="email" type="email" id="email" />
