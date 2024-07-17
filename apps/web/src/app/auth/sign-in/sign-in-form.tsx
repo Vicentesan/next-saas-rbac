@@ -3,6 +3,7 @@
 import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import { toast } from 'sonner'
 
 import githubIcon from '@/assets/github-icon.svg'
@@ -13,14 +14,20 @@ import { useFormState } from '@/hooks/use-form-state'
 import { handleSignInWithEmailAndPassword } from './actions'
 
 export function SignInForm() {
-  const [{ success, message, validationErrors }, handleSubmit, isPending] =
-    useFormState(handleSignInWithEmailAndPassword)
+  const [
+    { success, message, validationErrors, hasBeenCalled },
+    handleSubmit,
+    isPending,
+  ] = useFormState(handleSignInWithEmailAndPassword)
 
-  if (success === false && message) {
-    toast.error('Sign in failed!', {
-      description: message,
-    })
-  }
+  useEffect(() => {
+    if (success === false && message) {
+      toast.error('Sign in failed!', {
+        description: message,
+      })
+    }
+  }, [success, message, validationErrors, hasBeenCalled])
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-1">
