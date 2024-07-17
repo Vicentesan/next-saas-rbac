@@ -1,6 +1,8 @@
 'use server'
 
 import { HTTPError } from 'ky'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 import { z } from 'zod'
 
 import { signInWithPassword } from '@/http/sign-in-with-password'
@@ -48,7 +50,12 @@ export async function handleSignInWithEmailAndPassword(
       password,
     })
 
-    console.log(jwtToken)
+    cookies().set('@nivo:auth-1.0.0', jwtToken, {
+      // i'ts always important to identify the application and versonize it
+      path: '/', // all routes will have access to the cookie
+      httpOnly: true,
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+    })
   } catch (err) {
     if (err instanceof HTTPError) {
       const { message } = await err.response.json()
@@ -66,5 +73,5 @@ export async function handleSignInWithEmailAndPassword(
     }
   }
 
-  return { success: true, message: null, validationErrors: null }
+  redirect('/')
 }
