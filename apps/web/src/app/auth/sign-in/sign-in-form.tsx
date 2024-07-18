@@ -3,7 +3,7 @@
 import { Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useTransition } from 'react'
 import { toast } from 'sonner'
 
 import githubIcon from '@/assets/github-icon.svg'
@@ -28,6 +28,14 @@ export function SignInForm() {
       })
     }
   }, [success, message, validationErrors, hasBeenCalled])
+
+  const [isSignInWithGithubActionPending, startTransaction] = useTransition()
+
+  function handleSignInWithGithub() {
+    startTransaction(() => {
+      signInWithGithubAction()
+    })
+  }
 
   return (
     <div className="space-y-4">
@@ -74,10 +82,25 @@ export function SignInForm() {
 
       <div className="h-px w-full bg-muted" />
 
-      <form action={signInWithGithubAction}>
-        <Button type="submit" className="w-full" variant="outline">
-          <Image src={githubIcon} className="mr-2 size-4 dark:invert" alt="" />
-          Sign In with Github
+      <form action={handleSignInWithGithub}>
+        <Button
+          type="submit"
+          className="w-full"
+          variant="outline"
+          disabled={isSignInWithGithubActionPending}
+        >
+          {isSignInWithGithubActionPending ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <>
+              <Image
+                src={githubIcon}
+                className="mr-2 size-4 dark:invert"
+                alt=""
+              />
+              Sign In with Github
+            </>
+          )}
         </Button>
       </form>
 
