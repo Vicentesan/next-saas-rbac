@@ -1,5 +1,5 @@
 {
-  "name": "nivo-next-saas-rbac",
+  "name": "saas-next-saas-rbac",
   "private": true,
   "scripts": {
     "build": "turbo build",

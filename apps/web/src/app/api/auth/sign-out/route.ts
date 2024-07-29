@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   redirectUrl.pathname = '/auth/sign-in'
   redirectUrl.search = ''
 
-  cookies().delete('@nivo:auth-1.0.0')
+  cookies().delete('@saas:auth-1.0.0')
 
   return NextResponse.redirect(redirectUrl)
 }

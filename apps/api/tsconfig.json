@@ -1,5 +1,5 @@
 {
-  "extends": "@nivo/tsconfig/node.json",
+  "extends": "@saas/tsconfig/node.json",
   "include": ["src/**/*", "types/*.d.ts"],
 
   "compilerOptions": {

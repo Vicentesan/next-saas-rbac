@@ -26,10 +26,10 @@ importers:
       '@fastify/swagger-ui':
         specifier: ^3.0.0
         version: 3.0.0
-      '@nivo/auth':
+      '@saas/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@nivo/env':
+      '@saas/env':
         specifier: workspace:*
         version: link:../../packages/env
       '@prisma/client':
@@ -54,13 +54,13 @@ importers:
       '@faker-js/faker':
         specifier: ^8.4.1
         version: 8.4.1
-      '@nivo/eslint-config':
+      '@saas/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint-config
-      '@nivo/prettier':
+      '@saas/prettier':
         specifier: workspace:*
         version: link:../../config/prettier
-      '@nivo/tsconfig':
+      '@saas/tsconfig':
         specifier: workspace:*
         version: link:../../config/typescript-config
       '@types/bcryptjs':
@@ -130,13 +130,13 @@ importers:
         specifier: ^3.22.5
         version: 3.22.5
     devDependencies:
-      '@nivo/eslint-config':
+      '@saas/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint-config
-      '@nivo/prettier':
+      '@saas/prettier':
         specifier: workspace:*
         version: link:../../config/prettier
-      '@nivo/tsconfig':
+      '@saas/tsconfig':
         specifier: workspace:*
         version: link:../../config/typescript-config
       '@types/node':
@@ -160,7 +160,7 @@ importers:
 
   config/eslint-config:
     devDependencies:
-      '@nivo/prettier':
+      '@saas/prettier':
         specifier: workspace:*
         version: link:../prettier
       '@rocketseat/eslint-config':
@@ -190,13 +190,13 @@ importers:
         specifier: ^3.22.5
         version: 3.22.5
     devDependencies:
-      '@nivo/eslint-config':
+      '@saas/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint-config
-      '@nivo/prettier':
+      '@saas/prettier':
         specifier: workspace:*
         version: link:../../config/prettier
-      '@nivo/tsconfig':
+      '@saas/tsconfig':
         specifier: workspace:*
         version: link:../../config/typescript-config
 
@@ -209,13 +209,13 @@ importers:
         specifier: ^3.22.5
         version: 3.22.5
     devDependencies:
-      '@nivo/eslint-config':
+      '@saas/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint-config
-      '@nivo/prettier':
+      '@saas/prettier':
         specifier: workspace:*
         version: link:../../config/prettier
-      '@nivo/tsconfig':
+      '@saas/tsconfig':
         specifier: workspace:*
         version: link:../../config/typescript-config
       '@types/node':

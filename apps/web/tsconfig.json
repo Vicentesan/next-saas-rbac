@@ -1,5 +1,5 @@
 {
-  "extends": "@nivo/tsconfig/next.json",
+  "extends": "@saas/tsconfig/next.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

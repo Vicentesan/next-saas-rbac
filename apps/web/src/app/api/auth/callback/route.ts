@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
 
   const { jwtToken } = await signInWithGithub({ code })
 
-  cookies().set('@nivo:auth-1.0.0', jwtToken, {
+  cookies().set('@saas:auth-1.0.0', jwtToken, {
     // i'ts always important to identify the application and versonize it
     path: '/', // all routes will have access to the cookie
     httpOnly: true,

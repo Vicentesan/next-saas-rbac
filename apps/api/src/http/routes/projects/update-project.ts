@@ -1,4 +1,4 @@
-import { projectSchema } from '@nivo/auth'
+import { projectSchema } from '@saas/auth'
 import type { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'

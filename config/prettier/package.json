@@ -1,5 +1,5 @@
 {
-  "name": "@nivo/prettier",
+  "name": "@saas/prettier",
   "version": "0.0.0",
   "main": "index.mjs",
   "private": true,

@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
-  title: 'Nivo',
+  title: 'saas',
 }
 
 export default function RootLayout({

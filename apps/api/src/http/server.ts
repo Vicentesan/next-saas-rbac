@@ -2,7 +2,7 @@ import { fastifyCors } from '@fastify/cors'
 import fastifyJwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
-import { env } from '@nivo/env'
+import { env } from '@saas/env'
 import { fastify } from 'fastify'
 import {
   jsonSchemaTransform,
@@ -52,7 +52,7 @@ app.setErrorHandler(errorHandler)
 app.register(fastifySwagger, {
   openapi: {
     info: {
-      title: 'Nivo API',
+      title: 'saas API',
       description: 'Full-stack SaaS with multi-tenant & RBAC.',
       version: '1.0.0',
     },

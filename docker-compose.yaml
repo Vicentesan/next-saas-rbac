@@ -8,4 +8,4 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=nivo-next-saas-rbac
+      - POSTGRES_DB=next-saas-rbac

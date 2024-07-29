@@ -1,5 +1,5 @@
 {
-  "name": "@nivo/web",
+  "name": "@saas/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,9 +26,9 @@
     "zod": "^3.22.5"
   },
   "devDependencies": {
-    "@nivo/eslint-config": "workspace:*",
-    "@nivo/prettier": "workspace:*",
-    "@nivo/tsconfig": "workspace:*",
+    "@saas/eslint-config": "workspace:*",
+    "@saas/prettier": "workspace:*",
+    "@saas/tsconfig": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -38,8 +38,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "@nivo/eslint-config/next"
+      "@saas/eslint-config/next"
     ]
   },
-  "prettier": "@nivo/prettier"
+  "prettier": "@saas/prettier"
 }

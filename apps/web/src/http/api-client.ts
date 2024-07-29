@@ -15,7 +15,7 @@ export const api = ky.create({
           cookieStore = serverCookies
         }
 
-        const token = getCookie('@nivo:auth-1.0.0', { cookies: cookieStore })
+        const token = getCookie('@saas:auth-1.0.0', { cookies: cookieStore })
 
         if (token) req.headers.set('Authorization', `Bearer ${token}`)
       },
